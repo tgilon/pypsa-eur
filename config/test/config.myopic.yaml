@@ -7,8 +7,6 @@ tutorial: true
 run:
   name: "test-sector-myopic"
   disable_progressbar: true
-  shared_resources:
-    policy: "test"
   shared_cutouts: true
 
 foresight: myopic

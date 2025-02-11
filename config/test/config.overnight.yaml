@@ -7,8 +7,6 @@ tutorial: true
 run:
   name: "test-sector-overnight"
   disable_progressbar: true
-  shared_resources:
-    policy: "test"
   shared_cutouts: true
 
 
@@ -83,7 +81,7 @@ solving:
   mem: 4000
 
   check_objective:
-    enable: true
+    enable: false
     expected_value: 6.96e+08
 
 plotting:

@@ -6,7 +6,7 @@ tutorial: true
 
 
 run:
-  name: "test-elec" # use this to keep track of runs with different settings
+  name: "test-elec-nuc" # use this to keep track of runs with different settings
   disable_progressbar: true
   shared_cutouts: true
 
@@ -34,6 +34,15 @@ electricity:
 
   renewable_carriers: [solar, solar-hsat, onwind, offwind-ac, offwind-dc, offwind-float]
 
+pypsa_eur:
+  Generator:
+  - onwind
+  - offwind-ac
+  - offwind-dc
+  - offwind-float
+  - solar-hsat
+  - solar
+  - ror
 
 atlite:
   default_cutout: be-03-2013-era5

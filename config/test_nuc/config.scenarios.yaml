@@ -32,6 +32,16 @@ electricity:
     StorageUnit: [battery, H2]
     Store: []
 
+pypsa_eur:
+  Generator:
+  - onwind
+  - offwind-ac
+  - offwind-dc
+  - offwind-float
+  - solar-hsat
+  - solar
+  - ror
+  
 atlite:
   default_cutout: be-03-2013-era5
   cutouts:

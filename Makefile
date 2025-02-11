@@ -61,6 +61,17 @@ test:
 	snakemake --configfile config/test/config.scenarios.yaml -n
 	echo "All tests completed successfully."
 
+test_nuc:
+	set -e
+	snakemake solve_elec_networks --configfile config/test_nuc/config.electricity.yaml
+	snakemake --configfile config/test_nuc/config.overnight.yaml
+	snakemake --configfile config/test_nuc/config.myopic.yaml
+	snakemake make_summary_perfect --configfile config/test_nuc/config.perfect.yaml
+	snakemake --configfile config/test_nuc/config.scenarios.yaml -n
+	echo "All tests completed successfully."
+
+test_all: test test_nuc
+
 unit-test:
 	pytest test
 
@@ -71,6 +82,11 @@ clean-tests:
 	snakemake --configfile config/test/config.myopic.yaml --delete-all-output
 	snakemake make_summary_perfect --configfile config/test/config.perfect.yaml --delete-all-output
 	snakemake --configfile config/test/config.scenarios.yaml -n --delete-all-output
+	snakemake solve_elec_networks --configfile config/test_nuc/config.electricity.yaml --delete-all-output
+	snakemake --configfile config/test_nuc/config.overnight.yaml --delete-all-output
+	snakemake --configfile config/test_nuc/config.myopic.yaml --delete-all-output
+	snakemake make_summary_perfect --configfile config/test_nuc/config.perfect.yaml --delete-all-output
+	snakemake --configfile config/test_nuc/config.scenarios.yaml -n --delete-all-output
 
 # Removes all created files except for large cutout files (similar to fresh clone)
 reset:

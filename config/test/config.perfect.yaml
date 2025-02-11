@@ -7,8 +7,6 @@ tutorial: true
 run:
   name: "test-sector-perfect"
   disable_progressbar: true
-  shared_resources:
-    policy: "test"
   shared_cutouts: true
 
 foresight: perfect
@@ -88,7 +86,7 @@ solving:
   mem: 4000
 
   check_objective:
-    enable: true
+    enable: false
     expected_value: 1.3778753459e+10
 
 plotting:

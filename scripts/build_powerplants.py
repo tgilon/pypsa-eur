@@ -146,7 +146,7 @@ if __name__ == "__main__":
     if "snakemake" not in globals():
         from _helpers import mock_snakemake
 
-        snakemake = mock_snakemake("build_powerplants")
+        snakemake = mock_snakemake("build_powerplants", clusters=5, configfiles="config/test/config.electricity.yaml")
     configure_logging(snakemake)
     set_scenario_config(snakemake)
 
@@ -162,6 +162,8 @@ if __name__ == "__main__":
         .assign(Fueltype=replace_natural_gas_fueltype)
         .replace({"Solid Biomass": "Bioenergy", "Biogas": "Bioenergy"})
     )
+
+    ppl.loc[ppl.query("Name=='Doel'").index, "DateOut"] = 2100
 
     # Correct bioenergy for countries where possible
     opsd = pm.data.OPSD_VRE().powerplant.convert_country_to_alpha2()

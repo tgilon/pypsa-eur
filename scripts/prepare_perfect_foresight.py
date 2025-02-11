@@ -285,7 +285,7 @@ def set_all_phase_outs(n):
     # TODO move this to a csv or to the config
     planned = [
         (["nuclear"], "DE", 2022),
-        (["nuclear"], "BE", 2025),
+        # (["nuclear"], "BE", 2025),
         (["nuclear"], "ES", 2027),
         (["coal", "lignite"], "DE", 2030),
         (["coal", "lignite"], "ES", 2027),

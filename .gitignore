@@ -78,3 +78,7 @@ merger-todos.md
 *.html
 # private dev folder
 dev/*
+
+!tests.ipynb
+!tests_before_fix.html
+!tests_after_fix.html
