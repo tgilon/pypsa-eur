@@ -1458,7 +1458,7 @@ def _add_endpoints_to_line(linestring, polygon_dict, tol=BUS_TOL / 2):
     # difference with polygon
     linestring_new = linestring.difference(polygon_unary)
 
-    if linestring_new is MultiLineString:
+    if isinstance(linestring_new, MultiLineString):
         # keep the longest line in the multilinestring
         linestring_new = max(linestring_new.geoms, key=lambda x: x.length)
 
